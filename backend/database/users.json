@@ -1,0 +1,24 @@
+[
+    {
+        "name": "admin",
+        "address": {
+            "street": "Adminvägen 1",
+            "city": "stockholm",
+            "zip": "12345"
+        },
+        "email": "admin@su.com",
+        "password": "password",
+        "role": "admin"
+    },
+    {
+        "name": "client",
+        "address": {
+            "street": "Clientvägen 1",
+            "city": "stockholm",
+            "zip": "12347"
+        },
+        "email": "client@su.com",
+        "password": "password",
+        "role": "client"
+    }
+]
