@@ -4,7 +4,7 @@ const {DATABASE_URI} = process.env
 
  const sweuyghurDB = async ()=> {
     try{
-        await mongoose.connect(`${DATABASE_URI}`)
+        await mongoose.connect(`${DATABASE_URI}sweuyghur`)
         console.log('CONNECTED TO THE DB....')
     }catch(error){
         console.log('Failed to connect to MongoDB', error)
