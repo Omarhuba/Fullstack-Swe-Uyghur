@@ -1,8 +1,7 @@
+const { sweuyghurDB} = require('./connection')
 const {Users} = require('../models/userModel')
-const { sweuyghurDB} = require('../models/userModel')
-
 const {Products} = require('../models/ProductsModel')
-// const { sweuyghurDB} = require('./connection')
+
 
 const users = require('./users.json')
 const products = require('./products.json')

@@ -1,16 +1,5 @@
 const mongoose = require("mongoose");
 
-const sweuyghurDB = async ()=> {
-    try{
-        await mongoose.connect("mongodb://localhost:27017/sweuyghur")
-        console.log('CONNECTED ....')
-    }catch(error){
-        console.log('Failed to connect to MongoDB', error)
-    }
-}
-
-// module.exports = {sweuyghurDB};
-
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -47,4 +36,4 @@ const userSchema = new mongoose.Schema({
 })
 
 const Users = mongoose.model('Users', userSchema)
-module.exports = {Users, sweuyghurDB};
+module.exports = { Users };

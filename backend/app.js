@@ -1,6 +1,6 @@
 const express = require('express')
-// const  {sweuyghurDB}  = require('./database/connection')
-const { sweuyghurDB } = require('./models/userModel')
+const  {sweuyghurDB}  = require('./database/connection')
+// const { sweuyghurDB } = require('./models/userModel')
 require('dotenv').config()
 // const routes = require('./routes')
 

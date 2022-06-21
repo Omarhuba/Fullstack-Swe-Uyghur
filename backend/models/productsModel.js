@@ -1,16 +1,5 @@
 const mongoose = require('mongoose')
 
-const sweuyghurDB = async ()=> {
-    try{
-        await mongoose.connect("mongodb://localhost:27017/sweuyghur")
-        console.log('CONNECTED ....')
-    }catch(error){
-        console.log('Failed to connect to MongoDB', error)
-    }
-}
-
-// module.exports = {sweuyghurDB};
-
 
 const productSchema = new mongoose.Schema({
     title: {
@@ -36,4 +25,5 @@ const productSchema = new mongoose.Schema({
 })
 
 const Products = mongoose.model('Products', productSchema)
-module.exports = {Products, sweuyghurDB};  
+
+module.exports = { Products };
