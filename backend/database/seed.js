@@ -1,5 +1,5 @@
 const { sweuyghurDB} = require('./connection')
-const {Users} = require('../models/userModel')
+const {User} = require('../models/userModel')
 const {Products} = require('../models/ProductsModel')
 
 
@@ -7,15 +7,15 @@ const users = require('./users.json')
 const products = require('./products.json')
 
 
-const createUsers = async () =>{
-    await Users.deleteMany({})
+const createUser = async () =>{
+    await User.deleteMany({})
 
     users.forEach( async (user)=>{
-        const newUsers = await new Users(user)
-        await newUsers.save()
+        const newUser = await new User(user)
+        await newUser.save()
         console.log('User saved!')
     })
-    console.log(createUsers)
+    console.log(createUser)
     console.log(`USERS CREATED WITH ${users.length} USERS IN DATABASE....`)
 }
 
@@ -35,5 +35,5 @@ const createProducts = async () =>{
 }
 
 sweuyghurDB();
-createUsers();
+createUser();
 createProducts()

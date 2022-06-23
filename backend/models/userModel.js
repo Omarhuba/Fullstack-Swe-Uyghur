@@ -8,7 +8,7 @@ const userSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    adress: {
+    address: {
         street:{
             type: String,
         },
@@ -29,17 +29,17 @@ const userSchema = new mongoose.Schema({
     },
     role:{
         type: String,
-        reuired: true,
+        // reuired: true,
         enum: ['admin','client']
     }
 },{
     timestamps: false
 })
 
-function generateHash(){
-    const hash = bcrypt.hashSync(password)
-    return hash
-}
+// function generateHash(){
+//     const hash = bcrypt.hashSync(password)
+//     return hash
+// }
 
 userSchema.pre('save', function generateHash(next){
     if(!this.isModified('password')){
@@ -52,7 +52,7 @@ userSchema.pre('save', function generateHash(next){
     })
 })
 
-userSchema.method.comparePassword = function(password, next){
+userSchema.methods.comparePassword = function(password, next){
     bcrypt.compare(password, this.password, (err, isMatched)=>{
         if(err) return next(err)
         else{
@@ -66,5 +66,5 @@ userSchema.method.comparePassword = function(password, next){
 }
 
 
-const Users = mongoose.model('Users', userSchema)
-module.exports = { Users };
+const User = mongoose.model('User', userSchema)
+module.exports = { User };
