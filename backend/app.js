@@ -1,20 +1,28 @@
 const express = require('express')
-const  {sweuyghurDB}  = require('./database/connection')
+const  {sweuyghurDB}  = require('./database')
+// require('./database/index')
 require('dotenv').config()
 const routes = require('./routes')
 
 
 
+
 const app = express()
-
-
 
 app.use(express.static('public'))
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 // app.use(morgan('dev'))
 
+
+app.get('/', (req,res)=>{
+  res.send('hello')
+})
+
+
+
 app.use('/api', routes.auth)
+app.use('/api', routes.users)
 
 
 const PORT = process.env.PORT || 7000;
