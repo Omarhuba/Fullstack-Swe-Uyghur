@@ -1,4 +1,4 @@
-const { sweuyghurDB } = require("./connection");
+const { sweuyghurDB } = require("./index");
 const { User } = require("../models/userModel");
 const { Products } = require("../models/ProductsModel");
 

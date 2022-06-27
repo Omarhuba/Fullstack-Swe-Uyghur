@@ -1,43 +1,37 @@
-
 const mongoose = require("mongoose");
-const bcrypt = require('bcryptjs')
+const bcrypt = require("bcryptjs");
 
+const verificationTokenSchema = new mongoose.Schema({
+  owner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
+  },
+  token: {
+    type: String,
+    required: true,
+  },
+  createdAt: {
+    type: Date,
+    expires: 3600,
+    default: Date.now(),
+  },
+});
 
-const verificationToken = new mongoose.Schema({
-
-
-
-
-    
-},{
-    timestamps: false
-})
-
-
-verificationToken.pre('save', function generateHash(next){
-    if(!this.isModified('password')){
-        return next()
-    }
-    bcrypt.hash(this.password, 10 , (err, generateHash)=>{
-        if(err) return next(err);
-        this.password = generateHash;
-        next()
-    })
-})
-
-verificationToken.methods.comparePassword = function(password, next){
-    bcrypt.compare(password, this.password, (err, isMatched)=>{
-        if(err) return next(err)
-        else{
-            if(!isMatched){
-                return next(null, isMatched)
-            }else{
-                return next(null, this)
-            }
-        }
-    })
+verificationTokenSchema.pre("save", async function (next) {
+  if (this.isModified("token")) {
+    const hash = await bcrypt.hash(this.token, 8)
+    this.token = hash
 }
+next();
 
+});
 
-const Token = mongoose.model('User', verificationToken)
+verificationTokenSchema.methods.compareToken = async function (token) {
+  const result = await bcrypt.compare(token, this.token)
+  return result;
+
+};
+
+const Token = mongoose.model("Token", verificationTokenSchema);
 module.exports = { Token };
