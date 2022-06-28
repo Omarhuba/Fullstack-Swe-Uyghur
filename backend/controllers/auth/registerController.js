@@ -54,7 +54,6 @@ const register = async (req, res) => {
       throw new Error(" User Already Exist!");
     }
   } catch (err) {
-    console.log(err.message);
     res.status(400).json(err.message);
   }
 };

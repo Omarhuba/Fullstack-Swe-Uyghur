@@ -13,7 +13,7 @@ const createUser = async () => {
     await newUser.save();
     console.log("User saved!");
   });
-  console.log(createUser);
+  // console.log(createUser);
   console.log(`USERS CREATED WITH ${users.length} USERS IN DATABASE....`);
 };
 

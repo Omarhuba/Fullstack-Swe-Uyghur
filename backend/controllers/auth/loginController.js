@@ -3,10 +3,9 @@ const jwt = require('jsonwebtoken')
 const login = async(req, res)=>{
     try{
         const { email, password } = req.body
-        console.log(req.body);
+        // console.log(req.body);
         const user = await User.findOne({email}).exec()
-        console.log(User);
-        console.log(user);
+        // console.log(user);
         if(!user) throw new Error('invalid creadential')
 
         user.comparePassword(password, async(err, isMached)=>{

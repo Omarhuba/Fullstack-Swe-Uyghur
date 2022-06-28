@@ -10,7 +10,7 @@ const getUser = async (req, res) => {
     if (role) {
       const getByRole = allUser.filter((user) => user.role == role);
       res.json(getByRole);
-      console.log(getByRole + "gefasfasdasd");
+      // console.log(getByRole + "gefasfasdasd");
     } else {
       res.json(allUser);
     }
@@ -21,9 +21,10 @@ const getUser = async (req, res) => {
 
 const updateUser = async(req, res) => {
   try{
-    const data = Object.keys(req.body)
-    const {_id} = req.user
     const user = await User.findById({_id}).select('-password')
+    const data = Object.keys(req.body)
+    const _id = req.user._id
+    console.log(req.user);
 
     const allUsers = await User.find({}).exec()
     const emailExist = allUsers.some((user => user.email === req.body.email))

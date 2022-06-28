@@ -5,9 +5,9 @@ const { sendError } = require('../utils/helper');
 
 
 
-const requireAuthUser = (req, res, next) => {
+const requireAuthUser = async(req, res, next) => {
     if(!req.headers.authrization){
-        console.log(req.headers.authrization);
+        // console.log(req.headers.authrization);
         return sendError(res, 'Please Login First!!!!')
     }
     try{
@@ -39,7 +39,7 @@ const requireAuthAdmin = async (req, res, next) => {
       const token = req.headers.authorization.replace("Bearer ", "");
       const tokenData = jwt.verify(token, process.env.JWT_SECRET);
       const user = await User.findById({ _id: tokenData._id });
-      console.log(user.role);
+    //   console.log(user.role);
 
       if (user.role != "admin") {
         throw new Forbidden();
