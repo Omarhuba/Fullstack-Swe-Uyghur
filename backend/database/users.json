@@ -6,7 +6,7 @@
             "city": "stockholm",
             "zip": "12345"
         },
-        "email": "admin@su.com",
+        "email": "admin@su.se",
         "password": "password",
         "role": "admin"
     },
@@ -17,7 +17,7 @@
             "city": "stockholm",
             "zip": "12347"
         },
-        "email": "client@su.com",
+        "email": "client@su.se",
         "password": "password",
         "role": "client"
     }
