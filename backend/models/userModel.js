@@ -8,17 +8,6 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
-    address: {
-      street: {
-        type: String,
-      },
-      city: {
-        type: String,
-      },
-      zip: {
-        type: Number,
-      },
-    },
     email: {
       type: String,
       reuired: true,
@@ -32,8 +21,19 @@ const userSchema = new mongoose.Schema(
       // reuired: true,
       enum: ["admin", "client"],
     },
-    avatar: {
+    address: {
+      street: {
         type: String,
+      },
+      city: {
+        type: String,
+      },
+      zip: {
+        type: Number,
+      },
+    },
+    avatar: {
+      type: String,
         default: '',
     },
     verified: {
