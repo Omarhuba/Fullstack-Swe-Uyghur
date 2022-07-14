@@ -1,7 +1,7 @@
 const { isValidObjectId } = require("mongoose");
 const { User } = require("../models/userModel");
 const { ResetToken } = require("../models/resetToken");
-const { mailTransport, generatePasswordResetTemplate } = require("../utils/mail");
+const { mailTransport, generatePasswordResetTemplate,plainEmailTemplate } = require("../utils/mail");
 
 const { sendError, createRandomBytes } = require("../utils/helper");
 
@@ -32,7 +32,9 @@ exports.forgotPassword = async (req, res) => {
 
   res.json({
     success: true,
-    msg: "your email is verified!!!",
+    msg: " ResetPassword Link sent to Your Email!!!",
     user: { name: user.name, email: user.email, id: user._id },
   });
 };
+
+

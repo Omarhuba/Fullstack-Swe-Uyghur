@@ -20,17 +20,15 @@ const resetTokenSchema = new mongoose.Schema({
 
 resetTokenSchema.pre("save", async function (next) {
   if (this.isModified("token")) {
-    const hash = await bcrypt.hash(this.token, 8)
-    this.token = hash
-}
-next();
-
+    const hash = await bcrypt.hash(this.token, 8);
+    this.token = hash;
+  }
+  next();
 });
 
-resetTokenSchema.methods.compareToken = async function (token) {
-  const result = await bcrypt.compare(token, this.token)
+resetTokenSchema.methods.compareToken = async function(token) {
+  const result = await bcrypt.compareSync(token, this.token);
   return result;
-
 };
 
 const ResetToken = mongoose.model("ResetToken", resetTokenSchema);
