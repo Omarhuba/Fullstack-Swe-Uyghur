@@ -1,7 +1,11 @@
 const { User } = require("../../models/userModel");
 const { Token } = require("../../models/verificationToken");
 const jwt = require("jsonwebtoken");
-const { generateOTP, mailTransport, generateEmailTemplate } = require("../../utils/mail");
+const {
+  generateOTP,
+  mailTransport,
+  generateEmailTemplate,
+} = require("../../utils/mail");
 
 const register = async (req, res) => {
   const { name, address, email, password, role } = req.body;
@@ -17,23 +21,21 @@ const register = async (req, res) => {
       });
       // console.log(user);
 
-      const OTP = generateOTP()
-      const verificationToken = new Token ({
+      const OTP = generateOTP();
+      const verificationToken = new Token({
         owner: user._id,
-        token: OTP
-      })
+        token: OTP,
+      });
 
-      await verificationToken.save()
+      await verificationToken.save();
       await user.save();
 
-
       mailTransport().sendMail({
-        from: 'emailverification@su.com',
+        from: "emailverification@su.com",
         to: user.email,
-        subject: 'Verify your email account!',
-        html: generateEmailTemplate(OTP)
-      })
-
+        subject: "Verify your email account!",
+        html: generateEmailTemplate(OTP),
+      });
 
       user.comparePassword(password, async (err, isMatched) => {
         if (err) {
@@ -59,4 +61,3 @@ const register = async (req, res) => {
 };
 
 module.exports = { register };
-

@@ -2,7 +2,7 @@ const { isValidObjectId } = require("mongoose");
 const { User } = require("../models/userModel");
 const { Token } = require("../models/verificationToken");
 const { sendError } = require("../utils/helper");
-const { generateOTP, mailTransport } = require("../utils/mail");
+const { mailTransport } = require("../utils/mail");
 
 exports.verifyEmail = async (req, res) => {
     const { userId, otp } = req.body;
