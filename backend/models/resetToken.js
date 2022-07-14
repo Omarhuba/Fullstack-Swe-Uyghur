@@ -34,4 +34,8 @@ resetTokenSchema.methods.compareToken = async function (token) {
 };
 
 const ResetToken = mongoose.model("ResetToken", resetTokenSchema);
+<<<<<<< HEAD
 module.exports = { ResetToken };
+=======
+module.exports = { ResetToken };
+>>>>>>> main
