@@ -36,3 +36,8 @@ exports.verifyEmail = async (req, res) => {
     res.json({success: true, msg: 'your email is verified!!!',
     user:{name: user.name, email: user.email, id: user._id}})
   };
+
+
+  exports.hello = (req, res) =>{
+    res.send('hello world')
+  }
