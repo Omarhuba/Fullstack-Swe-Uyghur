@@ -1,7 +1,13 @@
 const { isValidObjectId } = require("mongoose");
 const { User } = require("../models/userModel");
 const { Token } = require("../models/verificationToken");
-const { sendError } = require("../utils/helper");
+const { ResetToken } = require("../models/resetToken");
+const { sendError, createRandomBytes } = require("../utils/helper");
+const crypto = require('crypto')
+
+
+
+
 
 const getUser = async (req, res) => {
   try {
@@ -52,6 +58,26 @@ const deleteUser = async (req, res) => {
     res.status(400).json(err.message);
   }
 };
+
+
+
+const forgotPassword = async (req,res) =>{
+  const { email } = req.body
+  if(!email) return sendError(res, 'Please provide a valid email!!!')
+
+  const user = await User.findOne({email})
+  if(!user) return sendError(res, 'User not found, invalid credential!!');
+
+  const token = await ResetToken.findOne({owner: user_id});
+  if(token) return sendError(res, 'Only after One hour you can request token again!!')
+
+
+  const randomBytes = await createRandomBytes()
+  const resetToken = new ResetToken({owner: user_id, token })
+  await resetToken.save()
+
+}
+
 
 module.exports = { getUser, updateUser, deleteUser };
 

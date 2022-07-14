@@ -16,6 +16,7 @@ exports.mailTransport = () => nodemailer.createTransport({
       user: process.env.MAILTRAP_USERNAME,
       pass: process.env.MAILTRAP_PASSWORD,
     }
+<<<<<<< HEAD
 });
 
 
@@ -24,6 +25,17 @@ exports.generateEmailTemplate = code => {
   return `
 
   <!DOCTYPE html>
+=======
+  });
+
+
+
+
+exports.generateEmailTemplate = (code) =>{
+  return `
+  
+  <!doctype html>
+>>>>>>> main
   <html lang ="en">
     <head>
       <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -39,6 +51,7 @@ exports.generateEmailTemplate = code => {
     </head>
     <body>
       <div>
+<<<<<<< HEAD
         <div style="max-width: 620px; margin: 0 auto" font-family: sans-serif; color: #272727;>
 
           <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px";
@@ -99,13 +112,46 @@ exports.plainEmailTemplate = (heading, message) => {
 `
 };
 
+=======
+      <div style="max-width: 620px; margin: 0 auto" font-family: sans-serif; color: #272727;>
+  
+        <h1 style="font-size: 18px; font-weight: bold; margin-top: 20px";
+         background: #f6f6f6; padding: 10px; text-align: center; color: #272727;>
+         We are delighted to welcome you to our Team!</h1>
+         <p>Please Verify Your Email To Continue Your Verification code is :</p>
+        <p style="color: #272727; width: 80px; margin: 0 auto; font-weight: bold;
+         text-align: center; background: #f6f6f6; border-radius: 5px;
+         font-size: 25px;  ">${code}</p>
+        
+      </div>
+      </div>
+    </body>
+  </html>
+
+  `
+}
+
+
+
+exports.plainEmailTemplate = (heading, message)=>{
+  return `
+  
+  `
+
+}
+>>>>>>> main
 
 
 
 
 
+<<<<<<< HEAD
 exports.generatePasswordResetTemplate = (url) => {
   return `
+=======
+exports.generatePasswordResetTemplate = url =>{
+return `
+>>>>>>> main
 
 <!doctype html>
 <html lang ="en">
@@ -137,7 +183,14 @@ exports.generatePasswordResetTemplate = (url) => {
     </style>
   </body>
 </html>
+<<<<<<< HEAD
 `
 
 
 }
+=======
+
+
+`
+}  
+>>>>>>> main

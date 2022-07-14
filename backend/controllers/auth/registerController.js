@@ -1,7 +1,7 @@
 const { User } = require("../../models/userModel");
 const { Token } = require("../../models/verificationToken");
 const jwt = require("jsonwebtoken");
-const { generateOTP, mailTransport } = require("../../utils/mail");
+const { generateOTP, mailTransport, generateEmailTemplate } = require("../../utils/mail");
 
 const register = async (req, res) => {
   const { name, address, email, password, role } = req.body;
@@ -31,7 +31,7 @@ const register = async (req, res) => {
         from: 'emailverification@su.com',
         to: user.email,
         subject: 'Verify your email account!',
-        html: `<h1>${OTP}</h1>`
+        html: generateEmailTemplate(OTP)
       })
 
 
