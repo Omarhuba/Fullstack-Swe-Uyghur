@@ -6,58 +6,78 @@ const {
   mailTransport,
   generateEmailTemplate,
 } = require("../../utils/mail");
+const { sendError } = require("../../utils/helper");
 
 const register = async (req, res) => {
   const { name, address, email, password, role } = req.body;
-  const userFound = await User.findOne({ email }).exec();
-  try {
-    if (!userFound) {
-      const user = await new User({
-        name,
-        address,
-        email,
-        password,
-        role,
-      });
-      // console.log(user);
+  const userFound = await User.findOne({email})
+  if(userFound) return sendError(res, 'User already exists!')
 
-      const OTP = generateOTP();
-      const verificationToken = new Token({
-        owner: user._id,
-        token: OTP,
-      });
+  const user = new User({name, address, email, password, role })
 
-      await verificationToken.save();
-      await user.save();
+  const OTP = generateOTP();
+  const verificationToken = new Token({
+    owner: user._id,
+    token: OTP,
+  });
 
-      mailTransport().sendMail({
-        from: "emailverification@su.com",
-        to: user.email,
-        subject: "Verify your email account!",
-        html: generateEmailTemplate(OTP),
-      });
+  await verificationToken.save();
+  await user.save();
 
-      user.comparePassword(password, async (err, isMatched) => {
-        if (err) {
-          throw new Error("Something is wrong!");
-        } else {
-          const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
-            expiresIn: "1d",
-          });
+  mailTransport().sendMail({
+    from: "emailverification@su.com",
+    to: user.email,
+    subject: "Verify your email account!",
+    html: generateEmailTemplate(OTP),
+  });
 
-          const newUser = await User.findOne({ _id: user._id }).select(
-            "-password"
-          );
+  await user.save()
+  res.send(user)
 
-          res.json({ newUser, message: "User created successfully!", token });
-        }
-      });
-    } else {
-      throw new Error(" User Already Exist!");
-    }
-  } catch (err) {
-    res.status(400).json(err.message);
-  }
+
+
+
+
+
+
+
+
+
+
+
+
+  // const userFound = await User.findOne({ email }).exec();
+  //   if (!userFound) {
+  //     const user = await new User({
+  //       name,
+  //       address,
+  //       email,
+  //       password,
+  //       role,
+  //     });
+  //     // console.log(user);
+
+
+
+  //     user.comparePassword(password, async (err, isMatched) => {
+  //       if (err) {
+  //         throw new Error("Something is wrong!");
+  //       } else {
+  //         const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+  //           expiresIn: "1d",
+  //         });
+
+  //         const newUser = await User.findOne({ _id: user._id }).select(
+  //           "-password"
+  //         );
+
+  //         res.json({ newUser, message: "User created successfully!", token });
+  //       }
+  //     });
+  //   } else {
+  //     throw new Error(" User Already Exist!");
+  //   }
+  //   res.status(400).json(err.message);
 };
 
 module.exports = { register };
