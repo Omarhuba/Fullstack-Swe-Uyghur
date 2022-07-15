@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const taskSchema = new mongoose.Schema({
+const imageSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -13,5 +13,5 @@ const taskSchema = new mongoose.Schema({
     timestamp: false
 })
 
-const Tasks = mongoose.model('Tasks', taskSchema)
-module.exports = {Tasks}
+const Images = mongoose.model('Tasks', imageSchema)
+module.exports = {Images}

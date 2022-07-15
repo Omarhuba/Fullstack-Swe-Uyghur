@@ -1,8 +1,6 @@
-const { isValidObjectId } = require("mongoose");
 const { User } = require("../models/userModel");
 const { ResetToken } = require("../models/resetToken");
 const { mailTransport,plainEmailTemplate } = require("../utils/mail");
-
 const { sendError } = require("../utils/helper");
 
 
@@ -10,7 +8,7 @@ const { sendError } = require("../utils/helper");
 
 exports.resetPassword = async (req, res)=>{
     const {password} = req.body
-    console.log(password);
+    // console.log(password);
 
     const user = await User.findById(req.user._id)
     console.log(req.user._id);

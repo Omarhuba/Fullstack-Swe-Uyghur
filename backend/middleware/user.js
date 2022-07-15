@@ -3,6 +3,9 @@ const { User } = require("../models/userModel");
 const { ResetToken } = require("../models/resetToken");
 const { sendError } = require("../utils/helper");
 
+
+
+
 exports.isResetTokenValid = async (req, res, next) => {
   const { token, id } = req.query;
   console.log('hello query' + req.query.id, req.query.token);

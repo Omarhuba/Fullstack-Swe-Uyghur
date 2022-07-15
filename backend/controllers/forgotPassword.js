@@ -1,9 +1,9 @@
-const { isValidObjectId } = require("mongoose");
 const { User } = require("../models/userModel");
 const { ResetToken } = require("../models/resetToken");
 const { mailTransport, generatePasswordResetTemplate,plainEmailTemplate } = require("../utils/mail");
-
 const { sendError, createRandomBytes } = require("../utils/helper");
+
+
 
 exports.forgotPassword = async (req, res) => {
   const { email } = req.body;

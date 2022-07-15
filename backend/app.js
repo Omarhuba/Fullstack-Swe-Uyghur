@@ -17,9 +17,6 @@ app.use(morgan('dev'))
 
 
 
-// app.get('/api/login', (req,res)=>{
-//   res.send('hello')
-// })
 
 
 
