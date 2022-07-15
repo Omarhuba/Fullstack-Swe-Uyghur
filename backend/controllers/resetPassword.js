@@ -10,21 +10,24 @@ const { sendError } = require("../utils/helper");
 
 exports.resetPassword = async (req, res)=>{
     const {password} = req.body
+    console.log(password);
 
     const user = await User.findById(req.user._id)
+    console.log(req.user._id);
     if(!user) return sendError(res, 'User not found!')
 
     const isSamePassword = await user.comparePassword(password)
-    if(!isSamePassword) return sendError(res, 'New password must be different!!')
+    console.log(isSamePassword);
+    if(isSamePassword) return sendError(res, 'New password must be different!!')
 
 
-    if(password.trim().length < 8 || password.trim().length > 20) return
-    sendError(res, 'Password must be 5 to 20 characters long!')
-
+    if(password.trim().length < 5 || password.trim().length > 20)
+     return sendError(res, 'Password must be 5 to 20 characters long!')
     user.password = password.trim()
+    // console.log(user.password);
     await user.save()
 
-    await ResetToken.findByIdAndDelete({owner: user._id})
+    await ResetToken.findOneAndDelete({owner: user._id})
 
     mailTransport().sendMail({
         from: "security@su.com",
