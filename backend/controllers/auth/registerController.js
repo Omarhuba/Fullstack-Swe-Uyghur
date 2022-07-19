@@ -32,16 +32,10 @@ const register = async (req, res) => {
   });
 
   await user.save()
-  res.send(user)
 
-
-
-
-
-
-
-
-
+  res.status(200)
+  .json({success: true, msg: " User Create Successfully!!!" ,
+  user})
 
 
 

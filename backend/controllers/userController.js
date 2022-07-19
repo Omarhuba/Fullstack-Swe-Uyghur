@@ -22,7 +22,7 @@ const getUser = async (req, res) => {
 const updateUser = async (req, res) => {
   try {
     const data = Object.keys(req.body);
-    const {_id} = req.user;
+    const _id = req.user._id;
     const user = await User.findById({ _id }).select("-password");
     // console.log(req.body);
 
