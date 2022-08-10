@@ -1,18 +1,13 @@
-import './App.css';
-import {Header} from './components/Header.js'
+import React from 'react'
 import {Link} from 'react-router-dom'
-
-
-function App() {
+export const Register = () => {
   return (
-    <div className="App">
+    <div>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link> |
       <Link to="/album">Album</Link> |
       <Link to="/register">Resigter</Link> |
-     <Header />
+        <h1>Register</h1>
     </div>
-  );
+  )
 }
-
-export default App;
