@@ -1,16 +1,15 @@
 import './App.css';
 import {Header} from './components/Header.js'
-import {Link} from 'react-router-dom'
+import img from './assets/images/header.jpg'
+import { Navbar } from './components/Navbar';
 
 
 function App() {
   return (
     <div className="App">
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link> |
-      <Link to="/album">Album</Link> |
-      <Link to="/register">Resigter</Link> |
+      <Navbar/>
      <Header />
+     <img src={img} alt=""  style={{withd: '1440px', height: '600px'}}/>
     </div>
   );
 }

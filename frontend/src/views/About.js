@@ -1,6 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import '../sass/About.scss'
+import { Navbar } from '../components/Navbar'
 
 
 
@@ -8,13 +7,28 @@ import '../sass/About.scss'
 export const About = () => {
   return (
     <div className='about'>
-      <div className='navbar'>
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/album">Album</Link>
-        <Link to="/register">Resigter</Link>
+      <Navbar/>
+     
+      <div style={{ width: '1000px', height: '1000px', color: 'red'  }}>
+      <h1 >About</h1>
+
       </div>
-      <h1>About</h1>
+      <div style={{ width: '1000px', height: '1000px', color: 'red'  }}>
+      <h1 >About</h1>
+
+      </div>
+      <div style={{ width: '1000px', height: '1000px', color: 'red'  }}>
+      <h1 >About</h1>
+
+      </div>
+      <div style={{ width: '1000px', height: '1000px', color: 'red'  }}>
+      <h1 >About</h1>
+
+      </div>
+      <div style={{ width: '1000px', height: '1000px', color: 'red'  }}>
+      <h1 >About</h1>
+
+      </div>
     </div>
   )
 }
