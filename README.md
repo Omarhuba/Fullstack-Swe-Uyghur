@@ -1,3 +1,4 @@
+![poster](./backend/assets/MacBook%20Pro%20-%203%20(1).png)
 ## Available Scripts for backend
 
 In the project directory, you can run:
