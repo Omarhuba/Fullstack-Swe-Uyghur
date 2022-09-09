@@ -1,0 +1,63 @@
+.wrap{
+    background-image: url(../assets/images/header.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+.login-container {
+    font-family: Roboto;
+    // background-color: #e76f51;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+
+.login {
+    background-color: #143647;
+    color: aliceblue;
+    width:400px;
+    padding:40px;
+    box-shadow: 10px 10px 25px #00000080;
+    text-align:center;
+    border-radius: 15px;
+
+}
+
+.login input {
+    display: block;
+    margin: 20px auto;
+    justify-content: center;
+    text-align: center;
+    background:none;
+    padding:12px;
+    border-radius: 20px;
+    border: 1px rgb(28, 133, 133) solid;
+    outline:none;
+    color:white
+
+}
+
+.login [type="text"], .login [type="password"] {
+    width: 200px;
+    border-color: rgb(20, 196, 250);
+
+
+}
+.login [type="submit"] {
+    width: 120px;
+    cursor: pointer;
+}
+
+.login [type="text"]:focus, .login [type="password"]:focus {
+    width: 250px;
+    border-color: rgb(20, 168, 87);
+    transition:0.5s;
+
+}
+.login [type="submit"]:hover {
+    background-color: rgb(83, 158, 151);
+    transition: 0.5s;
+}

@@ -11,6 +11,7 @@ import { Home } from "../views/Home";
 import { Album } from "../views/Album";
 import { Products } from "../views/Products";
 import { About } from "../views/About";
+import { LoginView } from "../views/auth/LoginView";
 
 export const NavbarComponent = () => {
   return (
@@ -45,7 +46,7 @@ export const NavbarComponent = () => {
                 <FontAwesomeIcon icon={faCoffee} />
 
                 </Nav.Link>
-                <Nav.Link eventKey={2} href="#memes">
+                <Nav.Link as={Link} to={'/login'}>
                   <i className="fa fa-light fa-user"> Login</i>
                 </Nav.Link>
               </Nav>
@@ -59,6 +60,7 @@ export const NavbarComponent = () => {
           <Route path="/album" element={<Album />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
+          <Route path="/login" element={<LoginView />} />
         </Routes>
       </div>
     </Router>
