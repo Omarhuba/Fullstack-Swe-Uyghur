@@ -1,10 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
-// import { useState } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import "../../Modules/Login.scss";
+import AuthContext from "../../context/AuthProvider";
+
+
+import axios from '../../api/axios';
+const LOGIN_URL = '/login'
+
+
 
 export const LoginView = () => {
+  const {auth, setAuth} = useContext(AuthContext)
   const userRef = useRef();
   const errorRef = useRef();
   const [user, setUser] = useState("");
@@ -12,6 +19,7 @@ export const LoginView = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
+  console.log(auth);
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -21,12 +29,38 @@ export const LoginView = () => {
   }, [user, password]);
 
 
-  const loginHandler =(e)=>{
+  const loginHandler = async (e)=>{
     e.preventDefault()
-    setUser("");
-    setPassword("");
-    console.log(user,password);
-    setSuccess(true)
+    try{
+      const response = await axios.post(LOGIN_URL, JSON.stringify({email: user, password: password}),{
+        headers: { 'Content-Type': 'application/json'},
+        // withCredentials: true
+      })
+      console.log(JSON.stringify(response?.data));
+      console.log(JSON.stringify(response));
+
+      const accessToken = response.data.token;
+      
+      console.log(response.data.user.name);
+
+      setAuth({email:user, password:password, accessToken })
+      setUser("");
+      setPassword("");
+      // console.log(user,password);
+      setSuccess(true)
+
+    }catch(error){
+      if(!error?.response){
+        setErrorMsg('No server response')
+      }else if(error.response.status === 400){
+        setErrorMsg('Missing username or password')
+      }else if(error.response.status === 401){
+        setErrorMsg('Unauthorized')
+      }else{
+        setErrorMsg('Login faild')
+      }
+      errorRef.current.focus()
+    }
   }
 
 
@@ -36,7 +70,7 @@ export const LoginView = () => {
         <div className="login-container ">
           {success ? (
             <section className="login">
-              <h3>You are Loged in as{'as'}</h3>
+              <h3>You are Loged in as: {auth.email}</h3>
               <Link to={'../home'}>Home</Link>
             </section>
           ):
@@ -52,9 +86,8 @@ export const LoginView = () => {
             <Form className="login" onSubmit={loginHandler}>
               <h1>Login </h1>
               <input
-                type="text"
-                id="username"
-                placeholder="Username"
+                type="email"
+                placeholder="Your Email..."
                 onChange={(e) => setUser(e.target.value)}
                 ref={userRef}
                 autoComplete="off"
@@ -64,7 +97,7 @@ export const LoginView = () => {
               <input
                 type="password"
                 id="password"
-                placeholder="Password"
+                placeholder="Your Password..."
                 onChange={(e) => setPassword(e.target.value)}
                 ref={userRef}
                 value={password}

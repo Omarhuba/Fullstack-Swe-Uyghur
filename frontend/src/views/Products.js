@@ -1,12 +1,36 @@
-import React from 'react'
+import React,{useState, useEffect} from 'react'
+import axios from 'axios'
 
+import { ProductCard } from '../components/ProductCard'
 
-
+// const BASE_URL = 'http://localhost:5000/api/'
 
 export const Products = () => {
+
+  const [products, setProducts] = useState([])
+
+
+  const getProduct = async()=>{
+    const response = await axios.get('http://localhost:5000/api/products')
+    const data = await response.data
+    setProducts(data)
+    console.log(data);
+  }
+  useEffect(()=>{
+    getProduct()
+  },[])
+
+
   return (
     <div>
       <h1 >Products</h1>
+      {/* <button onClick={getProduct}>get product</button> */}
+
+      <div className="container">
+          {products.map((product,index) => (
+            <ProductCard key={index} product={product} />
+          ))}
+        </div>
 
     </div>
 
