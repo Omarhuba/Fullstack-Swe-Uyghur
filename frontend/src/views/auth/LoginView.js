@@ -19,7 +19,6 @@ export const LoginView = () => {
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false);
 
-  console.log(auth);
   useEffect(() => {
     userRef.current.focus();
   }, []);
@@ -36,14 +35,14 @@ export const LoginView = () => {
         headers: { 'Content-Type': 'application/json'},
         // withCredentials: true
       })
-      console.log(JSON.stringify(response?.data));
-      console.log(JSON.stringify(response));
+      // console.log(JSON.stringify(response?.data));
+      // console.log(JSON.stringify(response));
 
-      const accessToken = response.data.token;
-      
-      console.log(response.data.user.name);
+      const accessToken = response.data.user.token;
+      const name = response.data.user.name;
+      // console.log(response.data.user.token);
 
-      setAuth({email:user, password:password, accessToken })
+      setAuth({email:user, password:password,name, accessToken })
       setUser("");
       setPassword("");
       // console.log(user,password);
@@ -70,21 +69,21 @@ export const LoginView = () => {
         <div className="login-container ">
           {success ? (
             <section className="login">
-              <h3>You are Loged in as: {auth.email}</h3>
+              <h3>You are Loged in as: {auth.name}</h3>
               <Link to={'../home'}>Home</Link>
             </section>
           ):
             (
             <section>
-            <p
-              ref={errorRef}
-              className={errorMsg ? "errormsg" : "effscreen"}
-              aria-live="assertive"
-            >
-              {errorMsg}
-            </p>
             <Form className="login" onSubmit={loginHandler}>
               <h1>Login </h1>
+            <h4
+              ref={errorRef}
+              className={errorMsg ? "errormsg" : "effscreen"}
+              aria-live="assertive" style={{color: 'red'}}
+            >
+              {errorMsg}
+            </h4>
               <input
                 type="email"
                 placeholder="Your Email..."
@@ -93,6 +92,7 @@ export const LoginView = () => {
                 autoComplete="off"
                 value={user}
                 required
+
               />
               <input
                 type="password"
@@ -102,6 +102,7 @@ export const LoginView = () => {
                 ref={userRef}
                 value={password}
                 required
+
               />
               <input type="submit" value="Login" />
             </Form>

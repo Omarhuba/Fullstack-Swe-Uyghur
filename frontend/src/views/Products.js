@@ -3,7 +3,7 @@ import axios from 'axios'
 
 import { ProductCard } from '../components/ProductCard'
 
-// const BASE_URL = 'http://localhost:5000/api/'
+const BASE_URL = 'http://localhost:5000/api/'
 
 export const Products = () => {
 
@@ -11,7 +11,7 @@ export const Products = () => {
 
 
   const getProduct = async()=>{
-    const response = await axios.get('http://localhost:5000/api/products')
+    const response = await axios.get(`${BASE_URL}/products`)
     const data = await response.data
     setProducts(data)
     console.log(data);

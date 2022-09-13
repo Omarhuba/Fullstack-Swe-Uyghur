@@ -1,19 +1,20 @@
-import React from "react";
+import React,{useContext} from "react";
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
-// import "../Modules/navbar.scss";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-
+import { BrowserRouter as Router, Routes, Route, Link, } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// // import { faBag } from '@fortawesome/free-solid-svg-icons'
 import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-
 import { Home } from "../views/Home";
 import { Album } from "../views/Album";
 import { Products } from "../views/Products";
 import { About } from "../views/About";
 import { LoginView } from "../views/auth/LoginView";
 
+
+import AuthContext from "../context/AuthProvider";
+
 export const NavbarComponent = () => {
+  const {auth} = useContext(AuthContext)
+console.log('hellllooooo'+AuthContext);
   return (
     <Router>
       <div>
@@ -23,7 +24,7 @@ export const NavbarComponent = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link as={Link} to={"/home"}>Home</Nav.Link>
+                <Nav.Link as={Link} to={"/"}>Home</Nav.Link>
                 <Nav.Link as={Link} to={"/album"}>Album</Nav.Link>
                 <Nav.Link as={Link} to={"/products"}>Products</Nav.Link>
                 <Nav.Link as={Link} to={"/about"}>About</Nav.Link>
@@ -56,7 +57,7 @@ export const NavbarComponent = () => {
       </div>
       <div>
         <Routes>
-          <Route path="/home" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/album" element={<Album />} />
           <Route path="/products" element={<Products />} />
           <Route path="/about" element={<About />} />
