@@ -1,11 +1,11 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 
-import { ProductCard } from '../components/ProductCard'
+import { ProductCard } from '../Card/ProductCard'
 
 const BASE_URL = 'http://localhost:5000/api/'
 
-export const Products = () => {
+export const Football = () => {
 
   const [products, setProducts] = useState([])
 
@@ -23,7 +23,7 @@ export const Products = () => {
 
   return (
     <div>
-      <h1 >Products</h1>
+      <h1 >Here we go Football</h1>
       {/* <button onClick={getProduct}>get product</button> */}
 
       <div className="container">
