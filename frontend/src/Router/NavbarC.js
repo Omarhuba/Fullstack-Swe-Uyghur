@@ -1,17 +1,28 @@
+import {useState} from 'react'
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import routes from "./config";
 
+import  AuthContext  from '../context/AuthProvider'
+import  {AuthProvider}  from '../context/AuthProvider'
+
+import '../App.scss'
+
+
+
+
 
 
 export const NavbarC = () => {
-
+  const [button, setButton] = useState(false)
+  const {value, setValue} = useState({AuthProvider})
+// console.log('hhhiiii' +{value});
   return (
     <Router>
-      <div>
-         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <div >
+         <Navbar fixed="top" collapseOnSelect expand="lg" bg="dark" variant="dark"   >
            <Container >
-             <Navbar.Brand href="/">SWE-Uyghur</Navbar.Brand>
+             <Navbar.Brand href="/" exact >SWE-Uyghur</Navbar.Brand>
              <Navbar.Toggle aria-controls="responsive-navbar-nav" />
              <Navbar.Collapse id="responsive-navbar-nav">
                <Nav className="me-auto">
@@ -33,9 +44,18 @@ export const NavbarC = () => {
                  </NavDropdown>
                </Nav>
                <Nav>
-                 <Nav.Link href="/login">
-                   <i className="fa fa-light fa-user"> Login</i>
+                {
+                  !button ? ( <Nav.Link href="/login">
+                  <i className="far fa-light fa-user"> Login </i>
+                </Nav.Link>): (
+                   <Nav.Link href="/login">
+                   <i className="fa fa-light fa-user"> Logout</i>
                  </Nav.Link>
+                )
+                }
+
+
+
                </Nav>
              </Navbar.Collapse>
            </Container>

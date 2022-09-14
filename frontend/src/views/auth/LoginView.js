@@ -70,7 +70,7 @@ export const LoginView = () => {
           {success ? (
             <section className="login">
               <h3>You are Loged in as: {auth.name}</h3>
-              <Link to={'../home'}>Home</Link>
+              <Link to={'/'}>Home</Link>
             </section>
           ):
             (
