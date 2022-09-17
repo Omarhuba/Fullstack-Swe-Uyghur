@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import "../../Modules/Login.scss";
+import "../../Modules/views/Login.scss";
 import AuthContext from "../../context/AuthProvider";
 
 
@@ -12,6 +12,7 @@ const LOGIN_URL = '/login'
 
 export const LoginView = () => {
   const {auth, setAuth} = useContext(AuthContext)
+  // console.log('omar'+auth.name);
   const userRef = useRef();
   const errorRef = useRef();
   const [user, setUser] = useState("");

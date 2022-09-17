@@ -1,14 +1,23 @@
- .App {
-  text-align: center;
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
 }
 
+
+.App {
+  text-align: center;
+  max-width: 1440px;
+  margin: auto;
+
+}
 
 // .home_view{
 //   height: 100vh;
 //   background-color: aquamarine;
 // }
 
-.navbar{
-  position: sticky;
-  top: 0;
-}
+// .navbar{
+//   position: sticky;
+//   top: 0;
+// }

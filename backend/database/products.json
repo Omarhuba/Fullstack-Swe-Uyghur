@@ -1,88 +1,82 @@
-[{
+[
+  {
     "title": "Brown eggs",
     "price": "399 SEK",
     "desc": "Raw organic brown eggs in a basket",
-    "product_img": "0.jpg",
+    "img": "N/A",
     "id": 1 ,
     "amount": 4
-  }, {
-    "title": "Sweet fresh stawberry",
-    "price": "399 SEK",
-    "desc": "Sweet fresh stawberry on the wooden table",
-    "product_img": "1.jpg",
-    "id": 2,
-    "amount": 4
-  }, {
-    "title": "Asparagus",
-    "price": "399 SEK",
-    "desc": "Asparagus with ham on the wooden table",
-    "product_img": "2.jpg",
-    "id": 3,
-    "amount": 3
-  }, {
-    "title": "Green smoothie",
-    "price": "399 SEK",
-    "desc": "Glass of green smoothie with quail egg's yolk, served with cocktail tube, green apple and baby spinach leaves over tin surface.",
-    "product_img": "3.jpg",
-    "id": 4,
-    "amount": 4
-  }, {
-    "title": "Raw legums",
-    "price": "399 SEK",
-    "desc": "Raw legums on the wooden table",
-    "product_img": "4.jpg",
-    "id": 5,
-    "amount": 2
-  }, {
-    "title": "Baking cake",
-    "price": "399 SEK",
-    "desc": "Baking cake in rural kitchen - dough  recipe ingredients (eggs, flour, sugar) on vintage wooden table from above.",
-    "product_img": "5.jpg",
-    "id": 6,
-    "amount": 4
-  }, {
-    "title": "Pesto with basil",
-    "price": "399 SEK",
-    "desc": "Italian traditional pesto with basil, chesse and oil",
-    "product_img": "6.jpg",
-    "id": 7,
-    "amount": 2
-  }, {
-    "title": "Hazelnut in black ceramic bowl",
-    "price": "399 SEK",
-    "desc": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus",
-    "product_img": "7.jpg",
-    "id": 8,
-    "amount": 0
-  }, {
-    "title": "Fresh stawberry",
-    "price": "399 SEK",
-    "desc": "Sweet fresh stawberry on the wooden table",
-    "product_img": "8.jpg",
-    "id": 9,
-    "amount": 4
-  }, {
-    "title": "Lemon and salt",
-    "price": "399 SEK",
-    "desc": "Rosemary, lemon and salt on the table",
-    "product_img": "9.jpg",
-    "id": 10,
-    "amount": 5
   },
   {
-    "title": "Lemon and salt",
+    "title": "Brown eggs",
     "price": "399 SEK",
-    "desc": "Rosemary, lemon and salt on the table",
-    "product_img": "9.jpg",
-    "id": 11,
-    "amount": 5
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 2 ,
+    "amount": 4
   },
   {
-    "title": "Lemon and salt",
+    "title": "Brown eggs",
     "price": "399 SEK",
-    "desc": "Rosemary, lemon and salt on the table",
-    "product_img": "9.jpg",
-    "id": 12,
-    "amount": 5
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 3 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 4 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 5 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 6 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 7 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 8 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 9 ,
+    "amount": 4
+  },
+  {
+    "title": "Brown eggs",
+    "price": "399 SEK",
+    "desc": "Raw organic brown eggs in a basket",
+    "img": "N/A",
+    "id": 10 ,
+    "amount": 4
   }
 ]

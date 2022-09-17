@@ -1,21 +1,31 @@
-import React from 'react'
+import React from "react";
+import "../../Modules/card/ProductCard.scss";
 
 export const ProductCard = (props) => {
   return (
-    <div>
-    <div className='product'>
-       <div>
-         <h3>{props.product.title}</h3>
-         <p>{props.product.desc}</p>
-       </div>
-       <div>
-         {/* <img src={ props.movie.Poster !== 'N/A' ? props.movie.Poster : 'https://via.placeholder.com/400' } alt={props.movie.Title} /> */}
-       </div>
-       <div>
-         {/* <span>{props.movie.Type}</span>
-         <h3>{props.movie.Title}</h3> */}
-       </div>
-     </div>
-</div>
-  )
-}
+    <div className="product container dark">
+      <div>
+        <h4>{props.product.amount}</h4>
+      </div>
+      <div>
+        <img
+          src={
+            props.product.img !== "N/A"
+              ? props.product.img
+              : "https://via.placeholder.com/400"
+          }
+          alt={props.product.title}
+        />
+      </div>
+      <div>
+        <span>{props.product.desc}</span>
+        <h3>{props.product.title}</h3>
+        <button>
+          Add Card
+        </button>
+
+
+      </div>
+    </div>
+  );
+};
