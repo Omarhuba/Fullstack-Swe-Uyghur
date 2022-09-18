@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "../../Modules/views/Login.scss";
 import AuthContext from "../../context/AuthProvider";
 
@@ -19,6 +20,8 @@ export const LoginView = () => {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const [success, setSuccess] = useState(false);
+  const navigate = useNavigate()
+
 
   useEffect(() => {
     userRef.current.focus();
@@ -34,20 +37,18 @@ export const LoginView = () => {
     try{
       const response = await axios.post(LOGIN_URL, JSON.stringify({email: user, password: password}),{
         headers: { 'Content-Type': 'application/json'},
-        // withCredentials: true
       })
-      // console.log(JSON.stringify(response?.data));
-      // console.log(JSON.stringify(response));
 
       const accessToken = response.data.user.token;
       const name = response.data.user.name;
-      // console.log(response.data.user.token);
 
       setAuth({email:user, password:password,name, accessToken })
       setUser("");
       setPassword("");
-      // console.log(user,password);
       setSuccess(true)
+      localStorage.setItem("adminToken", accessToken);
+      navigate('/')
+
 
     }catch(error){
       if(!error?.response){
@@ -69,10 +70,7 @@ export const LoginView = () => {
       <Container>
         <div className="login-container ">
           {success ? (
-            <section className="login">
-              <h3>You are Loged in as: {auth.name}</h3>
-              <Link to={'/'}>Home</Link>
-            </section>
+            <Link to={'/home'}/>
           ):
             (
             <section>
@@ -90,7 +88,7 @@ export const LoginView = () => {
                 placeholder="Your Email..."
                 onChange={(e) => setUser(e.target.value)}
                 ref={userRef}
-                autoComplete="off"
+              
                 value={user}
                 required
 

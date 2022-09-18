@@ -31,13 +31,17 @@ video {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
       'Lucida Sans', Arial, sans-serif;
   }
-
+  .btns {
+    background-color: #fff;
+  }
   .hero-btns {
     margin-top: 32px;
+
   }
 
   .hero-btns .btn {
     margin: 6px;
+    
   }
 
   .fa-play-circle {

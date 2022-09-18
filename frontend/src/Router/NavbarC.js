@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route, Link} from "react-router-dom";
 import routes from "./config";
@@ -15,18 +15,23 @@ import { useContext } from 'react';
 
 
 export const NavbarC = () => {
-  const {auth, setAuth} = useContext(AuthContext)
-  const [button, setButton] = useState(false)
+  const {auth, setAuth, accessToken} = useContext(AuthContext)
+  const [button, setButton] = useState(true)
   const [success, setSuccsess] = useState(false)
 
-console.log('hello' + auth.name);
+// console.log('hello' + auth.name);
 
-
-  const loginHandler =()=>{
+const loginHandler =()=>{
+  localStorage.getItem('adminToken', accessToken)
     setButton(true)
     setAuth({})
   }
+
+
+
+
   const logoutHandler =()=>{
+    localStorage.removeItem('adminToken', accessToken)
     setButton(false)
     setAuth('')
     console.log('logout');
@@ -65,9 +70,11 @@ console.log('hello' + auth.name);
                   !button ? ( <Nav.Link as={Link} to="/login" onClick={loginHandler}>
                   <i className="far fa-light fa-user"> Login </i>
                 </Nav.Link>): (
-                   <Nav.Link   onClick={logoutHandler}>
-                   <i className="fa fa-light fa-user"> Logout </i>
-                 </Nav.Link>
+
+                    <NavDropdown title={auth.name} id="collasible-nav-dropdown">
+                    <NavDropdown.Item  onClick={logoutHandler} as={Link} to="/login">Logout</NavDropdown.Item>
+
+                  </NavDropdown>
                 )
                 }
 

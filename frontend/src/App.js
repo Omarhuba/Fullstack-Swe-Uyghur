@@ -3,7 +3,6 @@ import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { NavbarC } from './Router/NavbarC';
-// import {Footer} from './components/Layout/Footer'
 
 import AuthContext from './context/AuthProvider'
 import {AuthProvider} from './context/AuthProvider'
@@ -19,14 +18,8 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-
-
-
-      <NavbarC fixed="top"/>
-
+        <NavbarC fixed="top"/>
       </AuthProvider>
-
-      {/* <Footer/> */}
     </div>
   );
 }
