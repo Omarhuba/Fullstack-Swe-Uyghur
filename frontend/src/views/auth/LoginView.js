@@ -69,10 +69,7 @@ export const LoginView = () => {
     <div className="wrap">
       <Container>
         <div className="login-container ">
-          {success ? (
-            <Link to={'/home'}/>
-          ):
-            (
+
             <section>
             <Form className="login" onSubmit={loginHandler}>
               <h1>Login </h1>
@@ -88,7 +85,7 @@ export const LoginView = () => {
                 placeholder="Your Email..."
                 onChange={(e) => setUser(e.target.value)}
                 ref={userRef}
-              
+
                 value={user}
                 required
 
@@ -104,10 +101,13 @@ export const LoginView = () => {
 
               />
               <input type="submit" value="Login" />
+          <section>
+              <p>Not a member yet? <Link to={'/register'}>Register</Link></p>
+          </section>
             </Form>
           </section>
-            )
-          }
+
+          
         </div>
       </Container>
     </div>

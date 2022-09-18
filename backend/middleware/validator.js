@@ -16,11 +16,11 @@ exports.userValidator = [
     .withMessage("Password is missing!!!")
     .isLength({ min: 5, max: 20 })
     .withMessage("Password must be 5 to 20 characters long!!!"),
-    check("address")
-      // .trim()
-      .not()
-      .isEmpty()
-      .withMessage("Address is missing!!!")
+    // check("address")
+    //   // .trim()
+    //   .not()
+    //   .isEmpty()
+    //   .withMessage("Address is missing!!!")
 ];
 
 exports.validate = (req, res, next)=>{

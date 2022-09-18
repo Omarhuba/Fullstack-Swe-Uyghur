@@ -1,8 +1,9 @@
 import { Home } from "../views/Home"
 import { Album } from "../views/Album"
-import { Football } from "../components/Products/Fotball"
+import { Products } from "../components/Products/Products"
 import { About } from "../views/About"
 import { LoginView } from "../views/auth/LoginView";
+import { RegisterView } from "../views/auth/RegisterView";
 
 
 const routes = [
@@ -23,8 +24,12 @@ const routes = [
         component: <LoginView/>
     },
     {
-        path:'/football',
-        component: <Football/>
+        path:'/register',
+        component: <RegisterView/>
+    },
+    {
+        path:'/products',
+        component: <Products/>
     },
 ]
 export default routes

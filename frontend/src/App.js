@@ -18,7 +18,7 @@ function App() {
   return (
     <div className="App">
       <AuthProvider>
-        <NavbarC fixed="top"/>
+        <NavbarC />
       </AuthProvider>
     </div>
   );

@@ -5,7 +5,7 @@ export const ProductCard = (props) => {
   return (
     <div className="product container dark">
       <div>
-        <h4>{props.product.amount}</h4>
+        <h4>Amount: {props.product.amount}</h4>
       </div>
       <div>
         <img

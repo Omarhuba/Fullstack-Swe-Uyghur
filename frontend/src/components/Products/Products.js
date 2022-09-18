@@ -5,7 +5,7 @@ import '../../Modules/views/Products.scss'
 
 const BASE_URL = "http://localhost:5000/api/";
 
-export const Football = () => {
+export const Products = () => {
   const [products, setProducts] = useState([]);
 
   const getProduct = async () => {
@@ -19,7 +19,7 @@ export const Football = () => {
   }, []);
 
   return (
-    <div className="football-container">
+    <div className="products-container">
         <h1>Here we go Football</h1>
         <div className="wrapper">
           {products.map((product, index) => (
