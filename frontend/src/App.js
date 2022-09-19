@@ -1,8 +1,13 @@
 import {useState, useMemo, useContext} from 'react'
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import  {Navbar}  from './components/Layout/Navbar';
+import { Home } from './views/Home';
 
-import { NavbarC } from './Router/NavbarC';
+
+// import { NavbarC } from './Router/NavbarC';
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
+
 
 import AuthContext from './context/AuthProvider'
 import {AuthProvider} from './context/AuthProvider'
@@ -17,11 +22,15 @@ function App() {
 
   return (
     <div className="App">
-      <AuthProvider>
-        <NavbarC />
-      </AuthProvider>
+      <Router>
+        <AuthProvider>
+          <Navbar/>
+          <Home/>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }
+{/* <NavbarC /> */}
 
 export default App;
