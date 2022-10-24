@@ -2,6 +2,7 @@ import React from "react";
 import { Button } from "../components/UI/Button";
 import "../Modules/views/Home.scss";
 import { HomeCard } from "../components/Card/HomeCard";
+import {Footer} from '../components/Layout/Footer'
 
 export const Home = () => {
   return (
@@ -30,6 +31,7 @@ export const Home = () => {
         </div>
       </div>
       <HomeCard/>
+      <Footer/>
     </>
   );
 };

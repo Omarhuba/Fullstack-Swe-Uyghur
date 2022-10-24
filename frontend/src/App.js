@@ -8,13 +8,12 @@ import { Home } from './views/Home';
 // import { NavbarC } from './Router/NavbarC';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
+import AuthContext from './store/auth-context'
 
-import AuthContext from './context/AuthProvider'
-import {AuthProvider} from './context/AuthProvider'
 
 function App() {
   const [{auth, setAuth}] = useState(AuthContext)
-  const value = useContext({AuthProvider})
+  const ctx = useContext(AuthContext)
 
   // console.log('hello' + auth);
 // const [user, setUser] = useState(null)
@@ -23,10 +22,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <AuthProvider>
-          <Navbar/>
+        { ctx.auth && <Navbar />}
           <Home/>
-        </AuthProvider>
       </Router>
     </div>
   );
