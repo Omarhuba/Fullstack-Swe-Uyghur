@@ -1,12 +1,13 @@
 .products-container{
     background-color: #242424;
+    margin-top: 5rem;
     h1{
-        padding-top: 5rem;
+        padding: 2rem;
+        color: white;
     }
 }
-.wrapper {
+.products_wrapper {
     width: 100%;
-    margin-top: 3rem;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
@@ -14,7 +15,7 @@
 }
 
 @media screen and (max-width: 786px) {
-    .wrapper{
+    .products_wrapper{
         padding: 0;
         margin: 0;
         display: flex;

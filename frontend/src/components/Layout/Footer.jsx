@@ -56,13 +56,13 @@ export const Footer = () => {
           </div>
           <small className="website">SweUyghur © 2022</small>
           <div className='social-icons'>
-            <Link class='social-icon-link facebook' to="/"
+            <Link className='social-icon-link facebook' to="/"
             target="_blank"
             area-aria-label='Facebook'
             >
               <i className="fab fa-facebook"/>
             </Link>
-            <Link class='social-icon-link instagram' to="/"
+            <Link className='social-icon-link instagram' to="/"
             target="_blank"
             area-aria-label='Instagram'
             >

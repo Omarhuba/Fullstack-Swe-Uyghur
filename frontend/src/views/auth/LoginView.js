@@ -3,7 +3,7 @@ import { Form, Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../Modules/views/Login.scss";
-import AuthContext from "../../context/AuthProvider";
+import AuthContext from "../../store/auth-context";
 
 
 import axios from '../../api/axios';
@@ -107,7 +107,7 @@ export const LoginView = () => {
             </Form>
           </section>
 
-          
+
         </div>
       </Container>
     </div>

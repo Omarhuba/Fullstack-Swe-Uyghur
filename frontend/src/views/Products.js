@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ProductCard } from "../components/Card/ProductCard";
-// import '../Modules/views/Products.scss'
+import { ProductCard } from "../components/products/ProductCard";
+import '../Modules/views/Products.scss'
 
 const BASE_URL = "http://localhost:5000/api/";
 

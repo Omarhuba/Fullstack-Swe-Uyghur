@@ -1,8 +1,8 @@
 import React from "react";
 import { Button } from "../components/UI/Button";
 import "../Modules/views/Home.scss";
-import { HomeCard } from "../components/Card/HomeCard";
-import {Footer} from '../components/Layout/Footer'
+import { HomeCard } from "../components/home/HomeCard";
+import {Footer} from '../components/layout/Footer'
 
 export const Home = () => {
   return (
@@ -14,6 +14,7 @@ export const Home = () => {
         <p>What Are You Waiting For?</p>
         <div className="hero-btns">
           <Button
+          to={"/register"}
             className="btns"
             buttonStyle="btn--outline"
             buttonSize="btn--large"
@@ -21,7 +22,7 @@ export const Home = () => {
             GET STARTED
           </Button>
           <Button
-            to={"/video"}
+            to={"/album"}
             className="btns"
             buttonStyle="btn--primary"
             buttonSize="btn--large"

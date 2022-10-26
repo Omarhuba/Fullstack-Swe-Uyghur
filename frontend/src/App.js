@@ -1,12 +1,16 @@
+import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import {useState, useMemo, useContext} from 'react'
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import  {Navbar}  from './components/Layout/Navbar';
+import  {Navbar}  from './components/layout/Navbar';
 import { Home } from './views/Home';
+import { Album } from './views/Album';
+import { Products } from './views/Products';
+import { About } from './views/About';
+import { LoginView } from './views/auth/LoginView';
+import { RegisterView } from './views/auth/RegisterView';
 
 
-// import { NavbarC } from './Router/NavbarC';
-import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 
 import AuthContext from './store/auth-context'
 
@@ -23,11 +27,17 @@ function App() {
     <div className="App">
       <Router>
         { ctx.auth && <Navbar />}
-          <Home/>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/album' element={<Album/>}/>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/about' element={<About/>}/>
+          <Route path='/login' element={<LoginView/>}/>
+          <Route path='/register' element={<RegisterView/>}/>
+        </Routes>
       </Router>
     </div>
   );
 }
-{/* <NavbarC /> */}
 
 export default App;
