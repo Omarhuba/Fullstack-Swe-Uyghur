@@ -6,7 +6,8 @@ const {userValidator, validate} = require('../middleware/validator')
 
 
 
-router.get('/allUser', requireAuthAdmin,  getUser)
+router.get('/users',  getUser)
+// router.get('/users', requireAuthAdmin,  getUser)
 router.patch('/updateUser',userValidator,validate,requireAuthUser, updateUser)
 router.delete('/deleteUser', requireAuthAdmin, deleteUser)
 
