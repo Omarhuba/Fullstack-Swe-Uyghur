@@ -1,7 +1,7 @@
 import React from "react";
 import about_img from "../assets/images/middle1.png";
 import "../Modules/views/About.scss";
-import {Footer} from '../components/layout/Footer'
+import {Footer} from '../components/Layout/Footer'
 import {Button} from '../components/UI/Button'
 
 export const About = () => {
