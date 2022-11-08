@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { ProductCard } from "../components/products/ProductCard";
+import { ProductCard } from "../components/Products/ProductCard";
 import '../Modules/views/Products.scss'
 
 const BASE_URL = "http://localhost:5000/api/";

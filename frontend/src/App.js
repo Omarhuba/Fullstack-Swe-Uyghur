@@ -2,7 +2,7 @@ import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
 import {useState, useMemo, useContext} from 'react'
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Navbar }  from './components/Layout/Navbar';
+import  {Navbar}  from './components/Layout/Navbar';
 import { Home } from './views/Home';
 import { Album } from './views/Album';
 import { Products } from './views/Products';
