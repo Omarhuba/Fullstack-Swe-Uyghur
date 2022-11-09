@@ -3,7 +3,7 @@ import axios from "axios";
 import { ProductCard } from "../Card/ProductCard";
 import '../../Modules/views/Products.scss'
 
-const BASE_URL = "http://localhost:5000/api/";
+const BASE_URL = "https://swe-uyghur-backend-verqp.ondigitalocean.app/api";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
