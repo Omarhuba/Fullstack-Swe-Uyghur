@@ -21,9 +21,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 
-app.use("/", routes.auth);
-app.use("/", routes.users);
-app.use("/", routes.products);
+app.use("/api", routes.auth);
+app.use("/api", routes.users);
+app.use("/api", routes.products);
 
 const PORT = process.env.PORT || 7000;
 app.listen(PORT, () => {

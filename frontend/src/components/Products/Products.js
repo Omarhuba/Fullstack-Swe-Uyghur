@@ -3,18 +3,16 @@ import axios from "axios";
 import { ProductCard } from "../Card/ProductCard";
 import '../../Modules/views/Products.scss'
 
-const BASE_URL = "https://swe-uyghur-backend-verqp.ondigitalocean.app/api";
 
 export const Products = () => {
   const [products, setProducts] = useState([]);
 
+  useEffect(() => {
   const getProduct = async () => {
-    const response = await axios.get(`${BASE_URL}/products`);
+    const response = await axios.get(`${process.env.BASE_URL}/products`);
     const data = await response.data;
     setProducts(data);
-    console.log(data);
   };
-  useEffect(() => {
     getProduct();
   }, []);
 
