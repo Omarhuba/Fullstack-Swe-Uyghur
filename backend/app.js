@@ -21,7 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
 
-app.use("/api", routes.auth);
+    app.use("/api", routes.auth);
 app.use("/api", routes.users);
 app.use("/api", routes.products);
 
