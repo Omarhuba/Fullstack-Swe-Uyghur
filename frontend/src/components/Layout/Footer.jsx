@@ -36,6 +36,7 @@ export const Footer = () => {
             <h2>Contact Us</h2>
             <Link to={'/'}>Contact</Link>
             <Link to={'/'}>Support</Link>
+            <Link to={'/'}>Help</Link>
           </div>
           <div className='footer-links-items'>
             <h2>Resources</h2>
