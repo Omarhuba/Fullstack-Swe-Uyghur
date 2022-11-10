@@ -8,20 +8,14 @@ const cors = require("cors");
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'http://localhost:3000',
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-  })
-)
+app.use(cors());
 
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(morgan("dev"));
 
-
-    app.use("/api", routes.auth);
+app.use("/api", routes.auth);
 app.use("/api", routes.users);
 app.use("/api", routes.products);
 
